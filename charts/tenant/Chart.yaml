@@ -1,0 +1,6 @@
+apiVersion: v2
+name: tenant
+description: Baseline Kubernetes resources for one monitoring tenant
+type: application
+version: 0.1.0
+

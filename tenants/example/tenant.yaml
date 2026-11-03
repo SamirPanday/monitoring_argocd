@@ -1,0 +1,26 @@
+id: example
+displayName: Example Tenant
+
+namespaces:
+  - example-prod
+  - example-staging
+
+grafana:
+  organization: example
+
+resources:
+  requests:
+    cpu: "1"
+    memory: 2Gi
+  limits:
+    cpu: "2"
+    memory: 4Gi
+
+serviceAccounts:
+  create: true
+  automountServiceAccountToken: false
+
+networkPolicy:
+  enabled: true
+  allowDns: true
+

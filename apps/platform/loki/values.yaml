@@ -1,0 +1,21 @@
+deploymentMode: SingleBinary
+
+loki:
+  auth_enabled: true
+  commonConfig:
+    replication_factor: 1
+  storage:
+    type: filesystem
+  limits_config:
+    retention_period: 30d
+
+singleBinary:
+  replicas: 1
+  persistence:
+    enabled: true
+    storageClass: longhorn
+    size: 50Gi
+
+gateway:
+  enabled: true
+

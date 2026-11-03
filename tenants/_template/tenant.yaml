@@ -1,0 +1,9 @@
+id: replace-me
+displayName: Replace Me
+
+namespaces:
+  - replace-me-prod
+
+grafana:
+  organization: replace-me
+
