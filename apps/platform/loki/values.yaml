@@ -16,7 +16,7 @@ loki:
           prefix: loki_index_
           period: 24h
   limits_config:
-    retention_period: 30d
+    retention_period: 3d
   compactor:
     working_directory: /var/loki/retention
     retention_enabled: true
@@ -27,7 +27,7 @@ singleBinary:
   persistence:
     enabled: true
     storageClass: longhorn
-    size: 20Gi
+    size: 10Gi
 
 # Chart defaults are 3 each; must be 0 in SingleBinary mode
 backend:
