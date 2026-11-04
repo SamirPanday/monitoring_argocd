@@ -6,7 +6,7 @@ metadata:
 spec:
   description: Tenant namespaces and monitoring resources
   sourceRepos:
-    - REPLACE_WITH_GIT_REPOSITORY_URL
+    - https://github.com/SamirPanday/monitoring_argocd
   destinations:
     - namespace: "*"
       server: https://kubernetes.default.svc

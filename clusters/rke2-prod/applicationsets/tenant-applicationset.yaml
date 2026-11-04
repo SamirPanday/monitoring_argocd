@@ -6,7 +6,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: REPLACE_WITH_GIT_REPOSITORY_URL
+        repoURL: https://github.com/SamirPanday/monitoring_argocd
         revision: main
         directories:
           - path: tenants/*
@@ -18,13 +18,13 @@ spec:
     spec:
       project: monitoring-tenants
       sources:
-        - repoURL: REPLACE_WITH_GIT_REPOSITORY_URL
+        - repoURL: https://github.com/SamirPanday/monitoring_argocd
           targetRevision: main
           path: charts/tenant
           helm:
             valueFiles:
               - '$values/{{path}}/tenant.yaml'
-        - repoURL: REPLACE_WITH_GIT_REPOSITORY_URL
+        - repoURL: https://github.com/SamirPanday/monitoring_argocd
           targetRevision: main
           ref: values
       destination:

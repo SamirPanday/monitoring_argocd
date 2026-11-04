@@ -14,13 +14,13 @@ spec:
             chart: kube-prometheus-stack
             chartVersion: 0.0.0
           - name: loki
-            namespace: logging
+            namespace: monitoring
             path: apps/platform/loki
             chartRepo: https://grafana.github.io/helm-charts
             chart: loki
             chartVersion: 0.0.0
           - name: alloy
-            namespace: logging
+            namespace: monitoring
             path: apps/platform/alloy
             chartRepo: https://grafana.github.io/helm-charts
             chart: alloy
@@ -37,7 +37,7 @@ spec:
           helm:
             valueFiles:
               - $values/{{path}}/values.yaml
-        - repoURL: REPLACE_WITH_GIT_REPOSITORY_URL
+        - repoURL: https://github.com/SamirPanday/monitoring_argocd
           targetRevision: main
           ref: values
       destination:
