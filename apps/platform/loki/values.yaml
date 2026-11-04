@@ -6,16 +6,47 @@ loki:
     replication_factor: 1
   storage:
     type: filesystem
+  schemaConfig:
+    configs:
+      - from: "2024-04-01"
+        store: tsdb
+        object_store: filesystem
+        schema: v13
+        index:
+          prefix: loki_index_
+          period: 24h
   limits_config:
     retention_period: 30d
+  compactor:
+    working_directory: /var/loki/retention
+    retention_enabled: true
+    delete_request_store: filesystem
 
 singleBinary:
-  replicas: 0
+  replicas: 1
   persistence:
     enabled: true
     storageClass: longhorn
-    size: 50Gi
+    size: 20Gi
+
+# Chart defaults are 3 each; must be 0 in SingleBinary mode
+backend:
+  replicas: 0
+read:
+  replicas: 0
+write:
+  replicas: 0
+
+# Memcached caches are on by default and request a lot of memory
+chunksCache:
+  enabled: false
+resultsCache:
+  enabled: false
+
+lokiCanary:
+  enabled: false
+test:
+  enabled: false
 
 gateway:
   enabled: true
-
