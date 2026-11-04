@@ -461,7 +461,7 @@ The platform ApplicationSet uses two sources:
 sources:
   - repoURL: https://grafana.github.io/helm-charts
     chart: loki
-    targetRevision: 0.0.0
+    targetRevision: 7.5.0
     helm:
       valueFiles:
         - $values/apps/platform/loki/values.yaml

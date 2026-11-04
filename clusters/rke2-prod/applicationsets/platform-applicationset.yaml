@@ -12,19 +12,19 @@ spec:
             path: apps/platform/kube-prometheus-stack
             chartRepo: https://prometheus-community.github.io/helm-charts
             chart: kube-prometheus-stack
-            chartVersion: 0.0.0
+            chartVersion: 92.18.0
           - name: loki
             namespace: monitoring
             path: apps/platform/loki
             chartRepo: https://grafana.github.io/helm-charts
             chart: loki
-            chartVersion: 0.0.0
+            chartVersion: 7.5.0
           - name: alloy
             namespace: monitoring
             path: apps/platform/alloy
             chartRepo: https://grafana.github.io/helm-charts
             chart: alloy
-            chartVersion: 0.0.0
+            chartVersion: 1.15.0
   template:
     metadata:
       name: '{{name}}'
@@ -49,4 +49,3 @@ spec:
           selfHeal: true
         syncOptions:
           - CreateNamespace=true
-
