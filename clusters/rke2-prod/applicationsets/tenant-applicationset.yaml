@@ -12,7 +12,6 @@ spec:
           - path: tenants/*
           - path: tenants/_template
             exclude: true
-
   template:
     metadata:
       name: 'tenant-{{path.basename}}'
