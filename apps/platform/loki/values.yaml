@@ -10,7 +10,7 @@ loki:
     retention_period: 30d
 
 singleBinary:
-  replicas: 1
+  replicas: 0
   persistence:
     enabled: true
     storageClass: longhorn

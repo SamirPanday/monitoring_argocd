@@ -10,7 +10,8 @@ spec:
         revision: main
         directories:
           - path: tenants/*
-
+          - path: tenants/_template
+            exclude: true
   template:
     metadata:
       name: 'tenant-{{path.basename}}'
