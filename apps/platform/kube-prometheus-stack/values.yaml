@@ -36,7 +36,7 @@ prometheus:
       fsGroup: 65534
       seccompProfile:
         type: RuntimeDefault
-    retention: 15d
+    retention: 7d
     storageSpec:
       volumeClaimTemplate:
         spec:
@@ -45,7 +45,7 @@ prometheus:
             - ReadWriteOnce
           resources:
             requests:
-              storage: 50Gi
+              storage: 5Gi
 
 alertmanager:
   enabled: true
