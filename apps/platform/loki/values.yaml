@@ -50,6 +50,8 @@ test:
 
 gateway:
   enabled: true
+  nginxConfig:
+    enableIPv6: false
 
 global:
   dnsService: rke2-coredns-rke2-coredns
