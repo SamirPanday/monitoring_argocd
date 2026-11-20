@@ -590,3 +590,32 @@ ServiceAccount, and NetworkPolicy objects to Kubernetes
 
 The current tenant chart creates Kubernetes namespaces and policies. It does not
 create a Grafana organization or Grafana users; those remain a separate workflow.
+
+## Loki IPv4-only cluster note
+
+The Loki gateway uses Nginx. In Loki chart `7.5.0`, the gateway's IPv6 listener
+is enabled by default. On an IPv4-only cluster, the gateway can crash with:
+
+```text
+socket() [::]:8080 failed (97: Address family not supported by protocol)
+```
+
+`[::]:8080` is the IPv6 wildcard listener. If IPv6 is disabled on the nodes,
+disable the gateway's IPv6 listener in `apps/platform/loki/values.yaml`:
+
+```yaml
+gateway:
+  nginxConfig:
+    enableIPv6: false
+```
+
+This is a network-listener compatibility issue, not a Longhorn capacity,
+SingleBinary-mode, or replica-count issue. Validate the rendered chart after
+changing Loki values:
+
+```sh
+helm template loki \
+  https://github.com/grafana/helm-charts/releases/download/helm-loki-7.5.0/loki-7.5.0.tgz \
+  --values apps/platform/loki/values.yaml \
+  --namespace monitoring
+```
