@@ -39,6 +39,7 @@ alloy:
       loki.source.kubernetes "pod_logs" {
         targets    = discovery.relabel.pod_logs.output
         forward_to = [loki.write.loki_endpoint.receiver]
+        tail_from_end = true
         clustering {
           enabled = true
         }
