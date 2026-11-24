@@ -8,7 +8,7 @@
 # spec:
 #   generators:
 #     - git:
-#         repoURL: https://github.com/SamirPanday/monitoring_argocd
+#         repoURL: https://gitlab.nabilbank.com/k8s2025/monitoring-stack
 #         revision: main
 #         directories:
 #           - path: tenants/*
@@ -20,13 +20,13 @@
 #     spec:
 #       project: monitoring-tenants
 #       sources:
-#         - repoURL: https://github.com/SamirPanday/monitoring_argocd
+#         - repoURL: https://gitlab.nabilbank.com/k8s2025/monitoring-stack
 #           targetRevision: main
 #           path: charts/tenant
 #           helm:
 #             valueFiles:
 #               - '$values/{{path}}/tenant.yaml'
-#         - repoURL: https://github.com/SamirPanday/monitoring_argocd
+#         - repoURL: https://gitlab.nabilbank.com/k8s2025/monitoring-stack
 #           targetRevision: main
 #           ref: values
 #       destination:

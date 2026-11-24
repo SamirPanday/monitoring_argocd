@@ -39,7 +39,7 @@ spec:
           helm:
             valueFiles:
               - $values/{{path}}/values.yaml
-        - repoURL: https://github.com/SamirPanday/monitoring_argocd
+        - repoURL: https://gitlab.nabilbank.com/k8s2025/monitoring-stack
           targetRevision: main
           ref: values
       destination:

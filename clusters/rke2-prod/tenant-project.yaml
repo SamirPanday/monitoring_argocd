@@ -8,7 +8,7 @@ metadata:
 spec:
   description: Tenant namespaces and monitoring resources
   sourceRepos:
-    - https://github.com/SamirPanday/monitoring_argocd
+    - https://gitlab.nabilbank.com/k8s2025/monitoring-stack
   destinations:
     - namespace: "*"
       server: https://kubernetes.default.svc

@@ -15,7 +15,7 @@ the tenant `ApplicationSet`; do not create tenant Applications manually in the A
 
 ## First use
 
-1. Replace `https://github.com/SamirPanday/monitoring_argocd` in the Argo CD manifests.
+1. Replace `https://gitlab.nabilbank.com/k8s2025/monitoring-stack` in the Argo CD manifests.
 2. Review the platform chart versions and values under `apps/platform/`.
 3. Review the example tenant under `tenants/example/`.
 4. Install the root Application:
