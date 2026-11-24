@@ -1,40 +1,40 @@
-apiVersion: argoproj.io/v1alpha1
-kind: ApplicationSet
-metadata:
-  name: monitoring-tenants
-  namespace: argocd
-  annotations:
-    argocd.argoproj.io/sync-wave: "0"
-spec:
-  generators:
-    - git:
-        repoURL: https://github.com/SamirPanday/monitoring_argocd
-        revision: main
-        directories:
-          - path: tenants/*
-          - path: tenants/_template
-            exclude: true
-  template:
-    metadata:
-      name: 'tenant-{{path.basename}}'
-    spec:
-      project: monitoring-tenants
-      sources:
-        - repoURL: https://github.com/SamirPanday/monitoring_argocd
-          targetRevision: main
-          path: charts/tenant
-          helm:
-            valueFiles:
-              - '$values/{{path}}/tenant.yaml'
-        - repoURL: https://github.com/SamirPanday/monitoring_argocd
-          targetRevision: main
-          ref: values
-      destination:
-        server: https://kubernetes.default.svc
-        namespace: argocd
-      syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
-        syncOptions:
-          - CreateNamespace=true
+# apiVersion: argoproj.io/v1alpha1
+# kind: ApplicationSet
+# metadata:
+#   name: monitoring-tenants
+#   namespace: argocd
+#   annotations:
+#     argocd.argoproj.io/sync-wave: "0"
+# spec:
+#   generators:
+#     - git:
+#         repoURL: https://github.com/SamirPanday/monitoring_argocd
+#         revision: main
+#         directories:
+#           - path: tenants/*
+#           - path: tenants/_template
+#             exclude: true
+#   template:
+#     metadata:
+#       name: 'tenant-{{path.basename}}'
+#     spec:
+#       project: monitoring-tenants
+#       sources:
+#         - repoURL: https://github.com/SamirPanday/monitoring_argocd
+#           targetRevision: main
+#           path: charts/tenant
+#           helm:
+#             valueFiles:
+#               - '$values/{{path}}/tenant.yaml'
+#         - repoURL: https://github.com/SamirPanday/monitoring_argocd
+#           targetRevision: main
+#           ref: values
+#       destination:
+#         server: https://kubernetes.default.svc
+#         namespace: argocd
+#       syncPolicy:
+#         automated:
+#           prune: true
+#           selfHeal: true
+#         syncOptions:
+#           - CreateNamespace=true
